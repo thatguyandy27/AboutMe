@@ -1,0 +1,78 @@
+<!DOCTYPE  HTML>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    	<link type="text/css" rel="stylesheet"  href="styles/styles.css" />
+        
+        <script src="scripts/libraries/jquery-1.8.2.js" type="text/javascript"></script>
+        <script src="scripts/libraries/knockout-2.1.0.js" type="text/javascript"></script>
+        <script src="scripts/model/leftnavitem.js" type="text/javascript"></script>
+        <script src="scripts/datasource.js" type="text/javascript"></script>
+        <script src="scripts/viewmodel.js" type="text/javascript"></script>
+        
+        <script type='text/html' id='objective'>
+        	<div>Highly self-motivated developer looking to obtain a mid to senior position at a company with a great culture 
+    		<br/>that fosters creativity and career development. I am looking for a challenging career that will allow me to 
+    		<br />utilize my expertise while learning new technologies.</div>
+    		
+    		<div>Illinois Institute of Technology, Chicago IL, 2005, BS in Computer Engineering</div>
+        </script>
+        <script type='text/html' id='engineering'>
+        	<div>Engineering template</div>
+        </script>
+        
+        <script type="text/html" id='leadership'>
+        	<div>Leadership template</div>
+        </script>
+        
+        <script type="text/html" id='workexperience'>
+        	<div>Work Experience template</div>
+        </script>
+        <script type='text/html' id='personal'>
+        	<div>Personal template</div>
+        </script>
+        <script type="text/html" id='interests'>
+        	<div>Interests template</div>
+        </script>
+        <script type='text/html' id='moreinfo'>
+        	<h3>Additional Resources</h3>
+        	
+        	<div>Here are some more resources to find out more about me!</div>
+        	
+        	<ul data-bind="foreach: links" > 
+        		<li><a  data-bind='text: label, attr: { href: link}' />
+        		</li>
+        	</ul>
+        	
+        </script>
+        
+        <title>Andrew Meyers</title>
+        
+     	<script type="text/javascript">
+
+        	$(document).ready(function () {
+	            ko.applyBindings(window.viewmodel);
+	        });
+    	</script>
+    </head>
+    <body >
+        <div id='header'>
+        	<h1>Andrew J Meyers</h1>
+        </div>
+        <div id='body'>
+        	<div id='leftNav'>
+        		<ul data-bind="foreach: leftNavItems, style:{display: leftNavItems().length > 0 ? '':'none'}"  >
+            		<li data-bind='text: label, click: function(data){$parent.updateSelected(data.id);} '>
+            		</li>
+        		</ul>
+        	</div>
+        	<div id='content' data-bind="template: {name: function(){ return selectedItem().id}, data: selectedItem}">
+        		
+        	</div>
+        </div>
+        <div id='footer'>
+        	<div>Contact me at meyeand1@iit.edu</div>
+        </div>
+    </body>
+</html>
