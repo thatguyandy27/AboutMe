@@ -12,6 +12,10 @@
         <script src="scripts/viewmodel.js" type="text/javascript"></script>
         
         <script type='text/html' id='objective'>
+            <h2>What is this? </h2>
+            <div>This is a page that I wrote to create an online profile, but most importantly I wanted an execuse
+                to use Knockout.  One thing that I believe is if you want to get good at something then you need to 
+                practice.  So here is some practice!</div>
             <h2>About Me</h2>
             <div>I am a highly self-motivated developer that loves to learn new technologies and practices.   
                 I have developed many web applications, console applciations, and desktop applications  
@@ -21,19 +25,50 @@
                 and my degree because I wanted to learn exactly how everything worked to make these complex computer 
                 devices and systems.  Computer Engineering allowed me to get a good understanding on hardware aspect as 
                 well as a good dive into how software, operating systems, etc. works from low level assembly to higher levels. </div>
-            <br />
-            <h2>  </h2>
-            <br />
             <h2>Education</h2>
             <div>Illinois Institute of Technology, Chicago IL, 2005, BS in Computer Engineering</div>
         </script>
         <script type='text/html' id='engineering'>
-            <h1>Engineering Skillz</h1>
+        <span id='engineeringSection'>
+            <h2>Engineering Skillz</h2>
             <div class='header'>
                 Languages:
-                <ul>
+                <ul data-bind='foreach: langauges'>
+                    <li data-bind='text: $data' >
                 </ul>
             </div>
+            <div class='header'>
+                Project Experience:
+                <ul data-bind='foreach: applications'>
+                    <li data-bind='text: $data' >
+                </ul>
+            </div>
+            <div class='header'>
+                Tools:
+                <ul data-bind='foreach: tools'>
+                    <li data-bind='text: $data' >
+                </ul>
+            </div>
+
+            <div class='header'>
+                Microsoft Technologies:
+                <ul data-bind='foreach: netFrameworks'>
+                    <li data-bind='text: $data' >
+                </ul>
+            </div>
+            <div class='header'>
+                JavaScript Frameworks:
+                <ul data-bind='foreach: javascriptFrameworks'>
+                    <li data-bind='text: $data' >
+                </ul>
+            </div>
+            <div class='header'>
+                Software Engineering:
+                <ul data-bind='foreach: softwareEngineering'>
+                    <li data-bind='text: $data' >
+                </ul>
+            </div>
+        </span>
         </script>
         
         <script type="text/html" id='leadership'>
@@ -48,6 +83,12 @@
         </script>
         <script type="text/html" id='interests'>
             <div>Interests template</div>
+        </script>
+        <script type='text/html' id='books'>
+            <div>Here is a good list of books I have read and a short description of them.</div>
+            <ul data-bind='foreach: books'>
+                <li data-bind='text: title' >
+            </ul>
         </script>
         <script type='text/html' id='moreinfo'>
             <h3>Additional Resources</h3>
