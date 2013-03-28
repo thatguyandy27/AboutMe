@@ -2,8 +2,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-    	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    	<link type="text/css" rel="stylesheet"  href="styles/styles.css" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link type="text/css" rel="stylesheet"  href="styles/styles.css" />
         
         <script src="scripts/libraries/jquery-1.8.2.js" type="text/javascript"></script>
         <script src="scripts/libraries/knockout-2.1.0.js" type="text/javascript"></script>
@@ -12,67 +12,81 @@
         <script src="scripts/viewmodel.js" type="text/javascript"></script>
         
         <script type='text/html' id='objective'>
-        	<div>Highly self-motivated developer looking to obtain a mid to senior position at a company with a great culture 
-    		<br/>that fosters creativity and career development. I am looking for a challenging career that will allow me to 
-    		<br />utilize my expertise while learning new technologies.</div>
-    		
-    		<div>Illinois Institute of Technology, Chicago IL, 2005, BS in Computer Engineering</div>
+            <h2>About Me</h2>
+            <div>I am a highly self-motivated developer that loves to learn new technologies and practices.   
+                I have developed many web applications, console applciations, and desktop applications  
+                from start to finish.  I have a strong passion for science (particularly physics and psycology), 
+                computers (sofware and hardware), sports, and history.  I chose my school particularly
+                because there was a strong focus in the math and sciences (everyone pretty much had to take calc2 and cs 101),
+                and my degree because I wanted to learn exactly how everything worked to make these complex computer 
+                devices and systems.  Computer Engineering allowed me to get a good understanding on hardware aspect as 
+                well as a good dive into how software, operating systems, etc. works from low level assembly to higher levels. </div>
+            <br />
+            <h2>  </h2>
+            <br />
+            <h2>Education</h2>
+            <div>Illinois Institute of Technology, Chicago IL, 2005, BS in Computer Engineering</div>
         </script>
         <script type='text/html' id='engineering'>
-        	<div>Engineering template</div>
+            <h1>Engineering Skillz</h1>
+            <div class='header'>
+                Languages:
+                <ul>
+                </ul>
+            </div>
         </script>
         
         <script type="text/html" id='leadership'>
-        	<div>Leadership template</div>
+            <div>Leadership template</div>
         </script>
         
         <script type="text/html" id='workexperience'>
-        	<div>Work Experience template</div>
+            <div>Work Experience template</div>
         </script>
         <script type='text/html' id='personal'>
-        	<div>Personal template</div>
+            <div>Personal template</div>
         </script>
         <script type="text/html" id='interests'>
-        	<div>Interests template</div>
+            <div>Interests template</div>
         </script>
         <script type='text/html' id='moreinfo'>
-        	<h3>Additional Resources</h3>
-        	
-        	<div>Here are some more resources to find out more about me!</div>
-        	
-        	<ul data-bind="foreach: links" > 
-        		<li><a  data-bind='text: label, attr: { href: link}' />
-        		</li>
-        	</ul>
-        	
+            <h3>Additional Resources</h3>
+            
+            <div>Here are some more resources to find out more about me!</div>
+            
+            <ul data-bind="foreach: links" > 
+                <li><a  data-bind='text: label, attr: { href: link}' />
+                </li>
+            </ul>
+            
         </script>
         
         <title>Andrew Meyers</title>
         
-     	<script type="text/javascript">
+         <script type="text/javascript">
 
-        	$(document).ready(function () {
-	            ko.applyBindings(window.viewmodel);
-	        });
-    	</script>
+            $(document).ready(function () {
+                ko.applyBindings(window.viewmodel);
+            });
+        </script>
     </head>
     <body >
         <div id='header'>
-        	<h1>Andrew J Meyers</h1>
+            <h1>Andrew J Meyers</h1>
         </div>
         <div id='body'>
-        	<div id='leftNav'>
-        		<ul data-bind="foreach: leftNavItems, style:{display: leftNavItems().length > 0 ? '':'none'}"  >
-            		<li data-bind='text: label, click: function(data){$parent.updateSelected(data.id);} '>
-            		</li>
-        		</ul>
-        	</div>
-        	<div id='content' data-bind="template: {name: function(){ return selectedItem().id}, data: selectedItem}">
-        		
-        	</div>
+            <div id='leftNav'>
+                <ul data-bind="foreach: leftNavItems, style:{display: leftNavItems().length > 0 ? '':'none'}"  >
+                    <li data-bind='text: label, click: function(data){$parent.updateSelected(data.id);} '>
+                    </li>
+                </ul>
+            </div>
+            <div id='content' data-bind="template: {name: function(){ return selectedItem().id}, data: selectedItem}">
+                
+            </div>
         </div>
         <div id='footer'>
-        	<div>Contact me at meyeand1@iit.edu</div>
+            <div>Contact me at meyeand1@iit.edu</div>
         </div>
     </body>
 </html>
