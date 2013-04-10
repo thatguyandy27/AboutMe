@@ -4,7 +4,7 @@ function dataSource(){
         return [new leftNavItem('About Me', 'objective'),
             new leftNavItem('Engineering Skillz', 'engineering'),
             new leftNavItem('Leadership Skillz', 'leadership'),
-            new leftNavItem('Work Experience', 'workexperience'),
+ //           new leftNavItem('Work Experience', 'workexperience'),
             new leftNavItem("Books I've read", 'books'), 
  //           new leftNavItem('Personal Projects', 'personal'),
  //           new leftNavItem('Interests and Hobbies', 'interests'),
@@ -25,6 +25,8 @@ function dataSource(){
                     {'label': 'JSFiddle', 'link':'http://jsfiddle.net/user/andyjmeyers/fiddles/'}
                 ];
             break;
+            case 'leadership':
+                break;
             case 'books':
                 returnValue.books = [{'title': "First, Break All the Rules: What the world's Greatest Managers Do Differently"},
                     {'title': "Drive: The Surprising Truth About What Motivates Us"},
@@ -45,8 +47,11 @@ function dataSource(){
               //  returnValue.other = ['Strong knowledege web debugging tools', 'Fiddler',
               //      'IIS', 'NTLM, Claims, and other MS authentication'];
             break;
-            case 'books':
-            
+            case 'workexperience':
+                retunValue.projects = [{'name': 'McCarthy', 'description': 'Lead a team on designing, developing and deploying a CRM 2011 solution.  Included a data driven configurable data export that allowed for selection of specific records and images to then be imported directly into a Microsoft Word Mail Merge template or Adobe InDesign template to generate project and employee resumes.  Also included development and desgining of ASP portal solution for non-CRM users to update their data, and then a seperate portal for a CRM user to approve that data and sync it back into CRM.'}, 
+                {'name': 'Permuta', 'description': 'Developer on a team that designed a windows 8 JS application for Permuta.  Included using a SQLite database for offline storage.  Used the Windows 8 JS tools, as well as Knockout.js'},
+                {'name': 'SanDisk', 'description': ''}];
+                
             break;
         }
         
