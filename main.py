@@ -16,17 +16,18 @@
 #
 import webapp2
 import jinja2
+from controllers.bookscontroller import BooksController
 
 jinja_environment = jinja2.Environment(
     loader=jinja2.FileSystemLoader(['web']))
 
+
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-		template = jinja_environment.get_template('index.html')
-		self.response.out.write(template.render())
-		
-		
+        template = jinja_environment.get_template('index.html')
+        self.response.out.write(template.render())
 
 app = webapp2.WSGIApplication([
+    (r'/services/books', BooksController),
     ('/', MainHandler)
 ], debug=True)
