@@ -4,33 +4,34 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link type="text/css" rel="stylesheet"  href="styles/styles.css" />
-        
+
         <script src="scripts/libraries/jquery-1.8.2.js" type="text/javascript"></script>
         <script src="scripts/libraries/knockout-2.1.0.js" type="text/javascript"></script>
         <script src="scripts/model/leftnavitem.js" type="text/javascript"></script>
         <script src="scripts/datasource.js" type="text/javascript"></script>
         <script src="scripts/viewmodel.js" type="text/javascript"></script>
-        
+
         <script type='text/html' id='objective'>
             <h2>What is this? </h2>
             <div>This is a page that I wrote to create an online profile, but most importantly I wanted an execuse
-                to use Knockout.  One thing that I believe is if you want to get good at something then you need to 
+                to use Knockout.  One thing that I believe is if you want to get good at something then you need to
                 practice.  So here is some practice!</div>
             <h2>About Me</h2>
-            <div>I am a highly self-motivated developer that loves to solve interesting and complex problems.  
-            	I enjoy working with passionate people and to learn new things.    
-                In my professional career I have worked on a wide varity of products including web applications, console applciations, 
-                and desktop applications as well as a few other types from start to finish.  
-                I also have a strong passion for science (particularly physics and psycology), 
+            <div>I am a highly self-motivated developer that loves to solve interesting and complex problems.
+            	I enjoy working with passionate people and to learn new things.
+                In my professional career I have worked on a wide varity of products including web applications, console applciations,
+                and desktop applications as well as a few other types from start to finish.
+                I also have a strong passion for science (particularly physics and psycology),
                 computers (sofware and hardware), sports, and history.  I chose my school particularly
                 because there was a strong focus in the math and sciences (everyone pretty much had to take calc2 and cs 101),
-                and my degree because I wanted to learn exactly how everything worked to make these complex computer 
-                devices and systems.  Computer Engineering allowed me to get a good understanding on hardware aspect as 
-                well as a good dive into how software, operating systems, etc. works from low level assembly to higher levels. 
+                and my degree because I wanted to learn exactly how everything worked to make these complex computer
+                devices and systems.  Computer Engineering allowed me to get a good understanding on hardware aspect as
+                well as a good dive into how software, operating systems, etc. works from low level assembly to higher levels.
                 I am also a devoted husband and father of two wonderful monsters.</div>
             <h2>Education</h2>
             <div>Illinois Institute of Technology, Chicago IL, 2005, BS in Computer Engineering</div>
         </script>
+
         <script type='text/html' id='engineering'>
         <span id='engineeringSection'>
             <h2>Engineering Skillz</h2>
@@ -73,7 +74,7 @@
             </div>
         </span>
         </script>
-        
+
         <script type="text/html" id='leadership'>
             <h2>Leadership Skillz</h2>
              <div class='header'>
@@ -89,10 +90,10 @@
                 </ul>
             </div>
         </script>
-        
+
         <script type="text/html" id='workexperience'>
             <div>Projects/div>
-            
+
         </script>
         <script type='text/html' id='personal'>
             <div>Personal template</div>
@@ -100,26 +101,41 @@
         <script type="text/html" id='interests'>
             <div>Interests template</div>
         </script>
+
         <script type='text/html' id='books'>
-            <div>Here is a good list of books I have read and a short description of them.</div>
-            <ul data-bind='foreach: books'>
-                <li data-bind='text: title' >
-            </ul>
+            <div class='bookContainer'>
+                <h2>Books</h2>
+                <div>Here is a list of professional books I have read and a short description of them.</div>
+                <ul data-bind='foreach: books'>
+                    <li >
+                        <a data-bind='attr:{href: link}' ><h3 data-bind='text: title' ></h3></a>
+                        <div data-bind='foreach: [1,2,3,4,5]' >
+                            <img data-bind='attr:{src: $data <=$parent.rating ?
+                             "/images/stargold32.png" : "/images/starwhite32.png"}'
+                             class='star' />
+                        </div>
+                        <div data-bind='text: review' class='textBubble' ></div>
+
+                    </li>
+
+                </ul>
+            </div>
         </script>
+
         <script type='text/html' id='moreinfo'>
             <h3>Additional Resources</h3>
-            
+
             <div>Here are some more resources to find out more about me!</div>
-            
-            <ul data-bind="foreach: links" > 
+
+            <ul data-bind="foreach: links" >
                 <li><a  data-bind='text: label, attr: { href: link}' />
                 </li>
             </ul>
-            
+
         </script>
-        
+
         <title>Andrew Meyers</title>
-        
+
          <script type="text/javascript">
 
             $(document).ready(function () {
@@ -129,7 +145,7 @@
     </head>
     <body >
     	<a href="http://stackexchange.com/users/200646/andy-meyers" id='logo'>
-    			<img src="http://stackexchange.com/users/flair/200646.png" width="208" 
+    			<img src="http://stackexchange.com/users/flair/200646.png" width="208"
     				height="58" alt="profile for Andy Meyers on Stack Exchange, a network of free, community-driven Q&amp;A sites"
     				title="profile for Andy Meyers on Stack Exchange, a network of free, community-driven Q&amp;A sites" />
 		</a>
@@ -145,7 +161,7 @@
                 </ul>
             </div>
             <div id='content' data-bind="template: {name: function(){ return selectedItem().id}, data: selectedItem}">
-                
+
             </div>
         </div>
         <div id='footer'>

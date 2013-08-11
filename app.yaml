@@ -14,6 +14,9 @@ handlers:
 
 - url: /scripts
   static_dir: web/scripts
+
+- url: /images
+  static_dir: web/images
   
 - url: .*
   script: main.app

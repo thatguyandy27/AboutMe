@@ -5,6 +5,11 @@ body,html
 	background-color: #ededed;
 }
 
+h2
+{
+    margin-top:5px;
+    margin-bottom:5px;
+}
 
 #header
 {
@@ -87,4 +92,39 @@ body,html
 	z-index: 1;
 	border-right: solid black 1px;
 	
+}
+
+/* used for book container */
+.bookContainer
+{
+
+}
+.bookContainer ul
+{
+    padding: 0px;
+}
+.bookContainer h3
+{
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.bookContainer li
+{
+    list-style:none;
+    margin-bottom:10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 5px;
+    box-shadow: 8px 10px 10px rgba(0,0,0,0.5), inset 8px 10px 10px rgba(255,255,255,0.75);
+}
+img.star
+{
+    height: 15px;
+
+}
+.textBubble
+{
+ //   border:1px solid black;
+ //   border-radius: 5px;
+ //   background-color:lightBlue;
 }

@@ -7,4 +7,7 @@ class Book(ModelBase):
     title = db.StringProperty()
     link = db.LinkProperty()
     order = db.IntegerProperty()
+    rating = db.IntegerProperty()
+    review = db.StringProperty()
+
 

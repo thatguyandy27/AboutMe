@@ -7,7 +7,7 @@ from django.utils import simplejson
 class BooksController(webapp2.RequestHandler):
 
     def get(self):
-        books = Book.all()
+        books = Book.all().order('-order')
         self.response.out.write(simplejson.dumps([m.to_dict() for m in books]))
 
 
