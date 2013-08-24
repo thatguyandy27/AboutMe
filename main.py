@@ -16,7 +16,12 @@
 #
 import webapp2
 import jinja2
-from controllers.bookscontroller import BooksController
+#from controllers.bookscontroller import BooksController
+from controllers.editController import EditController
+from services.bookservice import BookService
+from services.linkservice import LinkService
+from services.projectservice import ProjectService
+from models.about import About
 
 jinja_environment = jinja2.Environment(
     loader=jinja2.FileSystemLoader(['web']))
@@ -24,10 +29,14 @@ jinja_environment = jinja2.Environment(
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
+        aboutMe = About.all().get()
         template = jinja_environment.get_template('index.html')
-        self.response.out.write(template.render())
+        self.response.out.write(template.render(aboutMe=aboutMe))
 
 app = webapp2.WSGIApplication([
-    (r'/services/books', BooksController),
+    (r'/services/books', BookService),
+    (r'/services/links', LinkService),
+    (r'/services/projects', ProjectService),
+    (r'/edit', EditController),
     ('/', MainHandler)
 ], debug=True)

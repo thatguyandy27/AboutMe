@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 from google.appengine.ext import db
+from modelbase import ModelBase
 
 
-class link(db.Model):
+class Link(ModelBase):
     title = db.StringProperty()
     url = db.LinkProperty()
+    description = db.StringProperty()
 
-    def __init__(self):
-        super(link, self).__init__()
+
 

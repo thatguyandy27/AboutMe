@@ -2,9 +2,6 @@
 from google.appengine.ext import db
 
 
-class skill(db.Model):
+class Skill(db.Model):
     name = db.StringProperty()
     category = db.StringProperty()
-
-    def __init__(self):
-        super(skill, self).__init__()

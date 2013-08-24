@@ -19,10 +19,23 @@
             }
 
             vm.retrieveBooks = function retrieveBooks(navId){
-                vm.dataSource.retrieveBooks(function booksCallback(results){
-                    vm.selectedItem( {id:navId, isLoading: false,
-                         books: results})
-                });
+                if (!selectedItem.books){
+                    vm.dataSource.retrieveBooks(function booksCallback(results){
+                        var selectedItem = vm.selectedItem();
+                        selectedItem.id = navId;
+                        selectedItem.isLoading = false;
+                        selectedItem.books = results;
+                        vm.selectedItem( selectedItem)
+                    });
+                }
+                else
+                {
+                    var selectedItem = vm.selectedItem();
+                    selectedItem.id = navId;
+                    selectedItem.isLoading = false;
+                    vm.selectedItem( selectedItem)
+                }
+
             }
 
             vm.selectedItem = ko.observable(vm.dataSource.getItemById(initialSelection));

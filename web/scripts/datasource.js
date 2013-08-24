@@ -73,12 +73,26 @@ function dataSource(){
         }).done(function retrieveBooksComplete(results){
             callBack(results);
 
-        });
+            });
+    }
+    function saveBook(book, callBack){
+        $.ajax({
+          url: "/services/books",
+          type: "POST",
+          data: book,
+          //dataType: "json"
+        }).done(function saveBooksComplete(results){
+            callBack(results);
+
+            }).fail(function(status){
+                alert('Error: ' + status.toString());
+            });
     }
 
     return {
         getLeftNavItems: getLeftNavItems,
         getItemById: getItemById,
-        retrieveBooks: retrieveBooks
+        retrieveBooks: retrieveBooks,
+        saveBook: saveBook
     }
 }
