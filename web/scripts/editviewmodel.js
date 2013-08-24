@@ -8,24 +8,37 @@
             vm.links = ko.observableArray();
             vm.projects = ko.observableArray();
             vm.skils = ko.observableArray();
+            vm.about = ko.observable();
 
-            vm.dataSource.retrieveBooks(function retrieveBooksCallback(results){
+            function retrieveData(){
 
-                var len = (results ? results.length : 0);
+                vm.dataSource.retrieveBooks(function retrieveBooksCallback(results){
 
-                for (var i = 0; i < len; i++)
-                {
-                    var newBook = {
-                        title : ko.observable(results[i].title),
-                        link : ko.observable(results[i].link),
-                        order : ko.observable(results[i].order),
-                        rating : ko.observable(results[i].rating),
-                        review : ko.observable(results[i].review),
-                        id: ko.observable(results[i].id)
-                    };
-                    vm.books.push(newBook);
-                }
-            });
+                    var len = (results ? results.length : 0);
+
+                    for (var i = 0; i < len; i++)
+                    {
+                        var newBook = {
+                            title : ko.observable(results[i].title),
+                            link : ko.observable(results[i].link),
+                            order : ko.observable(results[i].order),
+                            rating : ko.observable(results[i].rating),
+                            review : ko.observable(results[i].review),
+                            id: ko.observable(results[i].id)
+                        };
+                        vm.books.push(newBook);
+                    }
+                });
+
+                vm.dataSource.retrieveAbout(function retrieveAboutCallback(result){
+                    vm.about({
+                           description: ko.observable(result.description),
+                           aboutSite: ko.observable(result.aboutSite),
+                           otherInterests: ko.observable(result.otherInterests)
+                        });
+                });
+            }
+
             vm.saveBook = function(item){
                 vm.dataSource.saveBook({
                     title:item.title(),
@@ -35,12 +48,21 @@
                     review: item.review(),
                     id: item.id()
                     },  function saveBookCallback(result){
-                        alert(result);
+                        item.id(result);
                 });
             };
-             vm.saveLink = function(item){
+            vm.saveLink = function(item){
                 alert(item);
             };
+            vm.saveAbout = function(){
+                vm.dataSource.saveAbout({
+                    description: vm.about().description(),
+                    aboutSite: vm.about().aboutSite(),
+                    otherInterests: vm.about().otherInterests()
+                    }, function saveAboutCallback(result){});
+            }
+
+            retrieveData();
         }
 
         return new vm();

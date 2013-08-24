@@ -18,16 +18,16 @@
         </script>
     </head>
     <body>
-        <div class='section'>
+        <div class='section' data-bind="with: about">
             <h2>About Me</h2>
             <div>About Me</div>
-            <textarea ></textarea >
+            <textarea data-bind="value: description" ></textarea >
             <div>About This</div>
-            <textarea ></textarea >
+            <textarea data-bind="value: aboutSite" ></textarea >
             <div>Interests/Hobbies</div>
-            <textarea ></textarea >
+            <textarea data-bind="value: otherInterests" ></textarea >
 
-            <div><button>Update</button></div>
+            <div><button data-bind="click: $parent.saveAbout">Update</button></div>
         </div>
         <div class='section' >
             <h2>Links</h2>

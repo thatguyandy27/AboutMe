@@ -65,24 +65,47 @@ function dataSource(){
         return returnValue;
     }
 
-    function retrieveBooks(callBack){
+    function retrieveBooks(callback){
         $.ajax({
           url: "/services/books",
           type: "get",
           dataType: "json"
         }).done(function retrieveBooksComplete(results){
-            callBack(results);
+            callback(results);
 
             });
     }
-    function saveBook(book, callBack){
+    function saveBook(book, callback){
         $.ajax({
           url: "/services/books",
           type: "POST",
           data: book,
           //dataType: "json"
         }).done(function saveBooksComplete(results){
-            callBack(results);
+            callback(results);
+
+            }).fail(function(status){
+                alert('Error: ' + status.toString());
+            });
+    }
+    function retrieveAbout(callback){
+         $.ajax({
+          url: "/services/about",
+          type: "get",
+          dataType: "json"
+        }).done(function retrieveAboutComplete(results){
+            callback(results);
+
+            });
+    }
+    function saveAbout(about, callback){
+        $.ajax({
+          url: "/services/about",
+          type: "POST",
+          data: about,
+          //dataType: "json"
+        }).done(function saveAboutComplete(results){
+            callback(results);
 
             }).fail(function(status){
                 alert('Error: ' + status.toString());
@@ -93,6 +116,8 @@ function dataSource(){
         getLeftNavItems: getLeftNavItems,
         getItemById: getItemById,
         retrieveBooks: retrieveBooks,
-        saveBook: saveBook
+        saveBook: saveBook,
+        retrieveAbout: retrieveAbout,
+        saveAbout: saveAbout
     }
 }

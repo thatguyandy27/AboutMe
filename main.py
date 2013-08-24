@@ -21,6 +21,7 @@ from controllers.editController import EditController
 from services.bookservice import BookService
 from services.linkservice import LinkService
 from services.projectservice import ProjectService
+from services.aboutservice import AboutService
 from models.about import About
 
 jinja_environment = jinja2.Environment(
@@ -37,6 +38,7 @@ app = webapp2.WSGIApplication([
     (r'/services/books', BookService),
     (r'/services/links', LinkService),
     (r'/services/projects', ProjectService),
+    (r'/services/about', AboutService),
     (r'/edit', EditController),
     ('/', MainHandler)
 ], debug=True)
