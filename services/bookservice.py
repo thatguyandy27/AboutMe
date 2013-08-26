@@ -15,7 +15,10 @@ class BookService(webapp2.RequestHandler):
         #jdata = json.loads(cgi.escape(self.request.body))
         # logging.info(self.request.POST)
         # logging.info(self.request.POST["id"])
-        recordId = self.request.POST["id"]
+        recordId = None
+        if "id" in self.request.POST:
+            recordId = self.request.POST["id"]
+
         book = None
         if recordId is not None and recordId.isdigit():
             #logging.info(recordId)

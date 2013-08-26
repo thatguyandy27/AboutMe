@@ -112,12 +112,39 @@ function dataSource(){
             });
     }
 
+    function retrieveLinks(callback){
+        $.ajax({
+            url: "/services/links",
+            type: "get",
+            dataType: "json"
+          }).done(function retrieveLinksComplete(results){
+            callback(results);
+
+        });
+    }
+
+    function saveLink(link, callback){
+         $.ajax({
+          url: "/services/links",
+          type: "POST",
+          data: link,
+          //dataType: "json"
+        }).done(function saveLinkComplete(results){
+            callback(results);
+
+            }).fail(function(status){
+                alert('Error: ' + status.toString());
+            });
+    }
+
     return {
         getLeftNavItems: getLeftNavItems,
         getItemById: getItemById,
         retrieveBooks: retrieveBooks,
         saveBook: saveBook,
         retrieveAbout: retrieveAbout,
-        saveAbout: saveAbout
+        saveAbout: saveAbout,
+        retrieveLinks: retrieveLinks,
+        saveLink: saveLink
     }
 }

@@ -34,16 +34,19 @@
             <ul  data-bind="foreach: links">
                 <li>
                     <div>
-                        <div>Title</div>
-                        <div>Link</div>
-                        <div>Description</div>
+                        <div class="label">Title</div>
+                        <div class="label">Link</div>
                     </div>
-                    <input data-bind="value: title" />
-                    <input data-bind="value: link" />
+                    <div>
+                        <input data-bind="value: title" />
+                        <input data-bind="value: url" />
+                    </div>
+                    <div >Description</div>
                     <textarea  data-bind="value: description"></textarea>
                     <button data-bind="click:$parent.saveLink" >Update</button>
                 </li>
             </ul>
+            <button data-bind="click: addNewLink">Add New</button>
         </div>
         <div class='section'>
             <h2>Books</h2>
@@ -64,6 +67,7 @@
                     <button data-bind="click:$parent.saveBook">Update</button>
                 </li>
             </ul>
+            <button data-bind="click: addNewBook">Add New</button>
         </div>
     </body>
 </html>
