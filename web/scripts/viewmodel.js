@@ -12,34 +12,28 @@
 
 
             vm.updateSelected = function(selectedId){
-                if (selectedId == 'books')
-                    vm.retrieveBooks(selectedId);
-                else
-                    vm.selectedItem(vm.dataSource.getItemById(selectedId));
+                var selectedItem = vm.selectedItem();
+                selectedItem.id = selectedId;
+                vm.selectedItem( selectedItem)
             }
 
-            vm.retrieveBooks = function retrieveBooks(navId){
-                if (!selectedItem.books){
-                    vm.dataSource.retrieveBooks(function booksCallback(results){
+            function retrieveData(){
+                 vm.dataSource.retrieveBooks(function booksCallback(results){
                         var selectedItem = vm.selectedItem();
-                        selectedItem.id = navId;
-                        selectedItem.isLoading = false;
                         selectedItem.books = results;
+                    });
+
+                 vm.dataSource.retrieveLinks(function linksCallback(results){
+                        var selectedItem = vm.selectedItem();
+                        selectedItem.links = results;
                         vm.selectedItem( selectedItem)
                     });
-                }
-                else
-                {
-                    var selectedItem = vm.selectedItem();
-                    selectedItem.id = navId;
-                    selectedItem.isLoading = false;
-                    vm.selectedItem( selectedItem)
-                }
-
             }
+
 
             vm.selectedItem = ko.observable(vm.dataSource.getItemById(initialSelection));
 
+            retrieveData();
         }
 
         return new vm();

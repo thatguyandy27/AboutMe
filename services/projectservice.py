@@ -2,6 +2,7 @@
 import webapp2
 from models.project import Project
 from django.utils import simplejson
+from google.appengine.api import users
 
 
 class ProjectService(webapp2.RequestHandler):
@@ -12,9 +13,10 @@ class ProjectService(webapp2.RequestHandler):
             for m in projects]))
 
     def post(self):
-        #jdata = json.loads(cgi.escape(self.request.body))
-        # logging.info(self.request.POST)
-        # logging.info(self.request.POST["id"])
+        user = users.get_current_user()
+        if not user or user.email() != 'andy.dude@gmail.com':
+            return
+
         recordId = self.request.POST["id"]
         project = None
         if recordId is not None and recordId.isdigit():

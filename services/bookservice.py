@@ -2,6 +2,8 @@
 import webapp2
 from models.book import Book
 from django.utils import simplejson
+from google.appengine.api import users
+
 import logging
 
 
@@ -12,9 +14,10 @@ class BookService(webapp2.RequestHandler):
         self.response.out.write(simplejson.dumps([m.to_dict() for m in books]))
 
     def post(self):
-        #jdata = json.loads(cgi.escape(self.request.body))
-        # logging.info(self.request.POST)
-        # logging.info(self.request.POST["id"])
+        user = users.get_current_user()
+        if not user or user.email() != 'andy.dude@gmail.com':
+            return
+
         recordId = None
         if "id" in self.request.POST:
             recordId = self.request.POST["id"]

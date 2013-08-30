@@ -126,13 +126,13 @@
             </div>
         </script>
 
-        <script type='text/html' id='moreinfo'>
+        <script type='text/html' id='links'>
             <h3>Additional Resources</h3>
 
             <div>Here are some more resources to find out more about me!</div>
 
             <ul data-bind="foreach: links" >
-                <li><a  data-bind='text: label, attr: { href: link}' />
+                <li><a  data-bind='text: title, attr: { href: url}' />
                 </li>
             </ul>
 
