@@ -4,8 +4,8 @@ from google.appengine.ext import db
 
 
 class About(ModelBase):
-    description = db.StringProperty()
-    aboutSite = db.StringProperty()
-    otherInterests = db.StringProperty()
+    description = db.TextProperty()
+    aboutSite = db.TextProperty()
+    otherInterests = db.TextProperty()
 
 
