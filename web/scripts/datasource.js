@@ -5,10 +5,10 @@ function dataSource(){
   //          new leftNavItem('Engineering Skillz', 'engineering'),
  //           new leftNavItem('Leadership Skillz', 'leadership'),
  //           new leftNavItem('Work Experience', 'workexperience'),
-            new leftNavItem("Books I've read", 'books'),
+            new leftNavItem("Books I've Read", 'books'),
  //           new leftNavItem('Personal Projects', 'personal'),
  //           new leftNavItem('Interests and Hobbies', 'interests'),
-            new leftNavItem('Additional Resources', 'links'),
+            new leftNavItem('Additional Links', 'links'),
         ];
     }
 

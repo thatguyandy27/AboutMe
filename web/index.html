@@ -127,15 +127,18 @@
         </script>
 
         <script type='text/html' id='links'>
-            <h3>Additional Resources</h3>
+            <div class='linkContainer'>
+                <h2>Addtional Links</h2>
+                <div>A list of links to other sites, profiles, or interesting projects.</div>
+                <ul data-bind='foreach: links'>
+                    <li >
+                       <a data-bind='attr: { href: url}'><h3 data-bind='text: title' ></h3></a>
+                       <div data-bind='text: description' class='textBubble' ></div>
 
-            <div>Here are some more resources to find out more about me!</div>
+                    </li>
 
-            <ul data-bind="foreach: links" >
-                <li><a  data-bind='text: title, attr: { href: url}' />
-                </li>
-            </ul>
-
+                </ul>
+            </div>
         </script>
 
         <title>Andrew Meyers</title>
@@ -148,11 +151,11 @@
         </script>
     </head>
     <body >
-    	<a href="http://stackexchange.com/users/200646/andy-meyers" id='logo'>
+        <!--<a href="http://stackexchange.com/users/200646/andy-meyers" id='logo'>
     			<img src="http://stackexchange.com/users/flair/200646.png" width="208"
     				height="58" alt="profile for Andy Meyers on Stack Exchange, a network of free, community-driven Q&amp;A sites"
     				title="profile for Andy Meyers on Stack Exchange, a network of free, community-driven Q&amp;A sites" />
-		</a>
+		</a>-->
         <div id='header'>
     		
             <h1>Andrew J Meyers</h1>
@@ -169,9 +172,8 @@
             </div>
         </div>
         <div id='footer'>
-        	<div>
-        	
-    			<span>Contact me at AndrewJMeyers28@gmail.com</span>
+        	<div class="middle">
+            <div class="content">Contact me at AndrewJMeyers28@gmail.com</div>
         	</div>
         </div>
     </body>

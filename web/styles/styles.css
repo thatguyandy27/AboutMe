@@ -1,8 +1,9 @@
 body,html
 {
-	margin: 0px;
-	padding:0px;
-	background-color: #ededed;
+    margin: 0px;
+    padding:0px;
+    background-image: url("/images/IMG_20130902_201505.jpg");
+    background-size: 100%;
 }
 
 h2
@@ -13,64 +14,82 @@ h2
 
 #header
 {
-	top:0px;
-	position:absolute;
-	text-align: center;
-	height:58px;
-	width:100%;
-	border-bottom: 1px solid black;
+    top:10px;
+    position:absolute;
+    text-align: center;
+    height:45px;
+}
+#header h1
+{
+    margin:0px;
 }
 
 #body
 {
-	position: absolute;
-	top:58px;
-	bottom: 50px;
-	width:100%;
+    position: absolute;
+    top:65px;
+    bottom: 65px;
+    width:100%;
 }
 
 #leftNav{
-	height:100%;
-	border-right:1px solid black;
-	position:absolute;
-	width:208px;
-	top: 0px;
-	
+    height:100%;
+    position:absolute;
+    width:190px;
+    top: 0px;
+    left:10px
 }
 
 #leftNav ul
 {
-	list-style: none;
-
+    list-style: none;
+    padding:0px;
 }
 #leftNav  li
 {
-	cursor:pointer;
+    cursor:pointer;
+    text-decoration:underline;
+}
+
+#leftNav  li:hover
+{
+    background-color: hsla(0, 100%, 100%, .5);
 }
 
 #content
 {
     position:absolute;
-    left:208px;
+    left:230px;
     top:0px;
     padding: 15px;
     overflow:auto;
     bottom:0px;
-    right:0px;
+    right:10px;
+    height:100%;
 }
 
 
 #footer{
-	position: absolute;
-	bottom: 0px;
-	height: 65px;
-	border-top: 1px solid black;
-	width: 100%;
+    position: absolute;
+    bottom: 10px;
+    height:45px;
 }
 
 #footer, #header
 {
-	background-color: lightblue;
+    left:10px;
+    right:10px;
+}
+
+#footer, #header, #content, #leftNav
+{
+    background-color:#C2D9FF;
+    background-color: hsla(217, 100%, 88%, .5);
+    border-radius: 5px;
+    padding:0px 10px;
+    border: 1px solid blue;
+    box-shadow: 8px 10px 10px rgba(0,0,0,0.5);
+    background: linear-gradient(to bottom, hsla(0, 100%, 100%, .75) 0%, hsla(217, 100%, 88%, .5) 30px);
 }
 
 #engineeringSection div:nth-child(odd)
@@ -86,12 +105,11 @@ h2
 
 #logo
 {
-	position: absolute;
-	top: 0px;
-	left:0px;
-	z-index: 1;
-	border-right: solid black 1px;
-	
+    position: absolute;
+    top: 0px;
+    left:10px;
+    z-index: 1;
+    border-right: solid white 1px;
 }
 
 /* used for book container */
@@ -99,11 +117,11 @@ h2
 {
 
 }
-.bookContainer ul
+.bookContainer ul, .linkContainer ul
 {
     padding: 0px;
 }
-.bookContainer h3
+.bookContainer h3, .linkContainer h3
 {
     margin-bottom: 5px;
     margin-top: 5px;
@@ -114,11 +132,12 @@ li
 }
 .bookContainer li
 {
-    margin-bottom:10px;
-    border-radius: 5px;
-    border: 1px solid black;
+  //  margin-bottom:10px;
+  //  border-radius: 5px;
+ //   border: 1px solid black;
     padding: 5px;
-    box-shadow: 8px 10px 10px rgba(0,0,0,0.5), inset 8px 10px 10px rgba(255,255,255,0.75);
+  //  box-shadow: 8px 10px 10px rgba(0,0,0,0.5), inset 8px 10px 10px rgba(255,255,255,0.75);
+
 }
 img.star
 {
@@ -131,3 +150,10 @@ img.star
  //   border-radius: 5px;
  //   background-color:lightBlue;
 }
+
+
+#footer .middle
+{
+    position: absolute; top: 25%;
+}
+
